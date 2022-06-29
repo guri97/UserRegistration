@@ -39,6 +39,20 @@ namespace UserRegistrationTest
             // Assert
             Assert.AreEqual(expected, result);
         }
+        [Test]
+        public void Email()
+        {
+            // Arrange 
+            bool expected = true;
+            string email = "gsgurpreet766@gmail.com";
+            UserRegistrationDetails user = new UserRegistrationDetails();
+
+            // Act
+            bool result = user.ValidateEmail(email);
+
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
 
 
     }

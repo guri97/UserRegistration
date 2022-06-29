@@ -26,12 +26,16 @@
             string firstName = Console.ReadLine();
             Console.Write("Last Name:     ");
             string lastName = Console.ReadLine();
+            Console.Write("Email:     ");
+            string email = Console.ReadLine();
             Console.Write("\n=====Result======\n");
             bool checkFirstName = user.ValidateFirstName(firstName);
             bool checkLastName = user.ValidateLastName(lastName);
+            bool checkEmail = user.ValidateEmail(email);
             Console.WriteLine("\n{0}\n{1}\n{2}\n{3}\n{4} ",
             (checkFirstName) ? "First name is valid" : "First name is invalid",
-            (checkLastName) ? "Last name is valid" : "Last name is invalid");
+            (checkLastName) ? "Last name is valid" : "Last name is invalid",
+            (checkEmail) ? "Email address is valid" : "Email address is invalid");
 
         }
     }

@@ -13,6 +13,8 @@ namespace UserRegistrationTestAndRegex
         public static string Regex_FirstName = "^[A-Z][a-z]{2,}$";
         //UC2
         public static string Regex_LastName = "^[A-Z][a-z]{2,}$";
+        //UC3 and UC9
+        public static string Regex_Email = "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2,})?$";
         public bool ValidateFirstName(string firstName)
         {
             try
@@ -51,6 +53,25 @@ namespace UserRegistrationTestAndRegex
             catch
             {
                 throw new UserRegistrationException(UserRegistrationException.ExceptionType.Empty_Message, "Last name should not be empty.");
+            }
+        }
+        public bool ValidateEmail(string email)
+        {
+            try
+            {
+                if (Regex.IsMatch(email, Regex_Email))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.Empty_Message, "Email should not be empty.");
+
             }
         }
 
