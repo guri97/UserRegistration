@@ -11,7 +11,8 @@ namespace UserRegistrationTestAndRegex
     {
         //UC1
         public static string Regex_FirstName = "^[A-Z][a-z]{2,}$";
-
+        //UC2
+        public static string Regex_LastName = "^[A-Z][a-z]{2,}$";
         public bool ValidateFirstName(string firstName)
         {
             try
@@ -32,6 +33,24 @@ namespace UserRegistrationTestAndRegex
             catch (NullReferenceException)
             {
                 throw new UserRegistrationException(UserRegistrationException.ExceptionType.NULL_Message, "Name should not be null.");
+            }
+        }
+        public bool ValidateLastName(string lastName)
+        {
+            try
+            {
+                if (Regex.IsMatch(lastName, Regex_LastName))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.Empty_Message, "Last name should not be empty.");
             }
         }
 
