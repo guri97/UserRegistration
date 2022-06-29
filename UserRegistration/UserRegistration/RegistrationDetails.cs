@@ -17,6 +17,9 @@ namespace UserRegistrationTestAndRegex
         public static string Regex_Email = "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2,})?$";
         //UC4
         public static string Regex_MobileNumber = "^[1-9][0-9][ ]?[6-9][0-9]{9}$";
+        //UC5 to UC8
+        public static string Regex_Password = "^[A-Za-z]{8,}[A-Z]{1,}[0-9]{1,}[-~!@#$%^*()_+{}:|?`;',]{1,}$";
+
         public bool ValidateFirstName(string firstName)
         {
             try
@@ -95,6 +98,26 @@ namespace UserRegistrationTestAndRegex
 
             }
         }
+        public bool ValidatePassword(string password)
+        {
+            try
+            {
+                if (Regex.IsMatch(password, Regex_Password))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.Empty_Message, "Password should not be empty.");
+            }
+        }
 
     }
+
+
 }

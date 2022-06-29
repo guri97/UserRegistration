@@ -1,5 +1,7 @@
 using UserRegistrationTestAndRegex;
 
+using System.Text.RegularExpressions;
+
 namespace UserRegistrationTest
 {
     public class Tests
@@ -67,7 +69,23 @@ namespace UserRegistrationTest
             // Assert
             Assert.AreEqual(expected, result);
         }
+        [Test]
+        public void Password()
+        {
+            // Arrange 
+            bool expected = true;
+            string password = "gurisingh@";
+            UserRegistrationDetails user = new UserRegistrationDetails();
 
+            // Act
+            bool result = user.ValidatePassword(password);
+
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
 
     }
+
+
+
 }
